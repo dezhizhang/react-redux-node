@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import logger from 'redux-logger';
 import App from './components/App';
+import thunk from 'redux-thunk';
 import Games from './components/Games';
 import { Provider } from 'react-redux';
 import { createStore,applyMiddleware } from 'redux';
@@ -10,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 const store = createStore(rootReducers,composeWithDevTools(
-    applyMiddleware(logger)
+    applyMiddleware(logger,thunk)
 ));
 
 ReactDOM.render(
