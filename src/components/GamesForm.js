@@ -26,7 +26,10 @@ class GamesForm extends React.Component{
             this.setState({
                 loading:true
             })
-            this.props.saveGames({ title,cover });
+            this.props.saveGames({ title,cover }).then(
+                ()=>{},
+                (err)=>err.response.json().then(({errors})=>this.setState({errors,loading:false}))
+            )
 
         }
 

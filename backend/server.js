@@ -24,6 +24,13 @@ mongodb.MongoClient.connect(dbUrl,(err,client)=>{
             res.json(games);
 
         })
+    });
+    app.use((req,res)=>{
+        res.status(404).json({
+            errors:{
+                global:'请检查地址是否正确'
+            }
+        })
     })
 })
 
