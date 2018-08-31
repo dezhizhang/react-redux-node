@@ -9,7 +9,10 @@ class Games extends React.Component{
     componentDidMount(){
         this.props.fetchGames();
     }
+    
     render(){
+        console.log(this.props.games);
+        
         return(<div>
             <GameList games={this.props.games}/>
         </div>)
