@@ -12,3 +12,15 @@ export const fetchGames = () =>{
         fetch('/api/games').then(res=>res.json()).then(data=>dispatch(setGames(data.games)))
     }
 }
+
+export const saveGames = (data) =>{
+     return dispatch => {
+         fetch('/api/games',{
+             method:'post',
+             body:JSON.stringify(data),
+             headers:{
+                 'Content-Type':'application/json'
+             }
+         })
+     }
+}
