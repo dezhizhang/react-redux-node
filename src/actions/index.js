@@ -1,4 +1,4 @@
-import { SET_GAMES }  from '../constants';
+import { SET_GAMES,ADD_GAMES }  from '../constants';
 
 export const setGames = (games) =>{
     return {
@@ -28,6 +28,13 @@ const handleResponse = (response)=>{
     }
 };
 
+export const addGames = (games) =>{
+    return {
+        type:ADD_GAMES,
+        games,
+    }
+}
+
 
 export const saveGames = (data) =>{
      return dispatch => {
@@ -37,6 +44,6 @@ export const saveGames = (data) =>{
              headers:{
                  'Content-Type':'application/json'
              }
-         }).then(handleResponse)
+         }).then(handleResponse).then(data=> dispatch(addGames(data.games)));
      }
 };

@@ -83,7 +83,7 @@ class GamesForm extends React.Component{
         )
         return (
           <div>
-              { this.state.done ? <Redirect to='/'/>: form}
+              { this.state.done ? <Redirect to='/games'/>: form}
           </div>
         )
     }
